@@ -3,7 +3,7 @@
     <form>
       <input v-model="currentInputs.text0" placeholder="Top Text"/>
       <input v-model="currentInputs.text1" placeholder="Bottom Text"/>
-      <button>Generate this meme</button v-on:click="getMeme">
+      <button>Generate this meme</button v-on:click="getMeme()">
     </form>
     <p>Current top text: {{ currentInputs.text0 }}</p>
     <p>Current top text: {{ currentInputs.text1 }}</p>
