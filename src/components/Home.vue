@@ -1,7 +1,8 @@
 <template>
   <section class="section">
     <div class="container">
-      <div class="columns is-multiline">
+      <loader v-if="!memes"></loader>
+      <div class="columns is-multiline" v-else-if="memes">
         <div class="column is-12">
           <h1>GET MEMES</h1>
         </div>
@@ -29,6 +30,7 @@
 
 <script>
 //imports and exports.
+import Loader from './Loader';
 import axios from 'axios';
 class Post {
   constructor(height, id, url, name, width) {
@@ -41,6 +43,9 @@ class Post {
 }
 export default {
   name: 'Home',
+  components: {
+    Loader
+  },
   //basically state?
   data() {
     return {
