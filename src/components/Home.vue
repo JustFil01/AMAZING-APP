@@ -8,13 +8,20 @@
         </div>
         <div class="column is-12">
           <form>
-              <input class="input" type="text" name="memes" value="" />
-              <button class="button is-info">Submit</button>
+              <input class="input" type="text" v-model="search"/>
+
+              <button class="button is-info">Refresh the page!</button>
           </form>
-        </div>
-        <div v-for="meme in memes" :key="meme.id" class="column is-3">
-          <p>{{meme.name}}</p>
-          <img :src="meme.url" />
+
+          <div class="card" v-for="meme in filteredList">
+            <p>{{meme.name}}</p>
+          </div>
+
+            <div v-for="meme in memes" :key="meme.id">
+              <p>{{meme.name}}</p>
+              <img :src="meme.url" />
+            </div>
+
         </div>
       </div>
     </div>
@@ -25,6 +32,15 @@
 //imports and exports.
 import Loader from './Loader';
 import axios from 'axios';
+class Post {
+  constructor(height, id, url, name, width) {
+    this.height = height;
+    this.id = id;
+    this.url = url;
+    this.name = name;
+    this.width = width;
+  }
+}
 export default {
   name: 'Home',
   components: {
@@ -33,10 +49,21 @@ export default {
   //basically state?
   data() {
     return {
-      memes: null
+      search: '',
+      memes: '',
     };
   },
-
+  computed: {
+    filteredList() {
+      if(!this.memes )
+      return null;
+      (console.log(this.search));
+      return this.memes.filter(meme => {
+        // (console.log(meme.name));
+        return meme.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+      }
+    },
   //like componentDidMount
   mounted() {
     axios
@@ -45,7 +72,6 @@ export default {
     })
     .then((res) => {
       this.memes = res.data.data.memes;
-      console.log(this.memes);
     });
   },
 };
