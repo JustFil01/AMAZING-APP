@@ -1,5 +1,7 @@
 <template>
   <section class="section">
+    <label for="template-id">Template ID:</label>
+    <input name="template-id" v-model="currentInputs.template_id" value=93895088/>
     <label for="text0">Top Text:</label>
     <input name="text0" v-model="currentInputs.text0" placeholder="Top Text"/>
     <label for="text1">Bottom Text:</label>
@@ -25,7 +27,7 @@ export default {
       currentMemeName: '',
       currentMemeRequestURL: '',
       currentInputs: {
-        template_id: this.$route.params.id,
+        template_id: 5496396,
         text0: '',
         text1: ''
       }
