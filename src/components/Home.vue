@@ -13,7 +13,9 @@
         </div>
 
           <div class="card column is-3" v-for="meme in filteredList">
-            <p>{{meme.name}}</p>
+            <router-link :to="'/meme/' + meme.id" class="navbar-item">
+              <p>{{meme.name}}</p>
+            </router-link>
             <img :src="meme.url" />
           </div>
 

@@ -8,11 +8,11 @@ Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 import Home from './components/Home';
-import NewMeme from './components/NewMeme';
+import ShowMeme from './components/ShowMeme';
 
 const routes = [
   { path: '/' , component: Home },
-  { path: '/newmeme' , component: NewMeme }
+  { path: '/meme/:id' , component: ShowMeme }
 ];
 
 const router = new VueRouter({
