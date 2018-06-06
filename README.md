@@ -1,2 +1,2 @@
-# AMAZING-APP
-This application is totes amazing. bro.
+# fuss-app
+An app for Fußball enthusiasts
