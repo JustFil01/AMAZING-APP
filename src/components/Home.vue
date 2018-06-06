@@ -9,7 +9,7 @@
         <div class="column is-12">
           <form>
               <input class="input" type="text" name="memes" value="" />
-              <button class="button is-info">Refresh the page!</button>
+              <button class="button is-info">Submit</button>
           </form>
         </div>
         <div v-for="meme in memes" :key="meme.id" class="column is-3">
