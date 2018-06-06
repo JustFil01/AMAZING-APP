@@ -10,12 +10,11 @@
               <input class="input" type="text" name="memes" value="" />
               <button class="button is-info">Refresh the page!</button>
           </form>
-
-            <div v-for="meme in memes" :key="meme.id">
+        </div>
+            <div v-for="meme in memes" :key="meme.id" class="column is-3">
               <p>{{meme.name}}</p>
               <img :src="meme.url" />
             </div>
-        </div>
       </div>
     </div>
   </section>
