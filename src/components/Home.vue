@@ -30,7 +30,7 @@ export default {
   //like componentDidMount
   mounted() {
     axios
-    .get('https://api.imgflip.com/caption_image?template_id=93895088&username=amazing-app-team&password=amazing-app-team&text0=text%20for%20text%20field%201&text1=text%20for%20text%20field%202',{
+    .get('https://api.imgflip.com/get_memes',{
 
     })
     .then((res) => {
@@ -39,6 +39,30 @@ export default {
     });
   },
 };
+class Post {
+  constructor(title, link, author, img) {
+    this.title = title;
+    this.link = link;
+    this.author = author;
+    this.img = img;
+  }
+}
+const app = new Vue ({
+  el: '#app',
+  data: {
+    search: '',
+    postList : [
+      //adding the meme from the get request here .
+    ],
+  computed: {
+    filteredList() {
+      return this.postList.filter(post => {
+        return post.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+      }
+    }
+  }
+})
 </script>
 
 <style>
