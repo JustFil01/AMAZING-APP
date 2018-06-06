@@ -1,5 +1,8 @@
 <template>
   <section class="section">
+    <router-link :to="'/'" class="navbar-item">
+      Return to the memes
+    </router-link>
     <label for="text0">Top Text:</label>
     <input name="text0" v-model="currentInputs.text0" placeholder="Top Text"/>
     <label for="text1">Bottom Text:</label>
