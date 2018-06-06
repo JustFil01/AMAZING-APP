@@ -10,6 +10,11 @@
               <input class="input" type="text" name="memes" value="" />
               <button class="button is-info">Refresh the page!</button>
           </form>
+
+            <div v-for="meme in memes" :key="meme.id">
+              <p>{{meme.name}}</p>
+              <img :src="meme.url" />
+            </div>
         </div>
       </div>
     </div>
@@ -30,12 +35,12 @@ export default {
   //like componentDidMount
   mounted() {
     axios
-    .get('https://api.imgflip.com/caption_image?template_id=93895088&username=amazing-app-team&password=amazing-app-team&text0=text%20for%20text%20field%201&text1=text%20for%20text%20field%202',{
+    .get('https://api.imgflip.com/get_memes',{
 
     })
     .then((res) => {
-      this.memes = res.data;
-      console.log(res.data);
+      this.memes = res.data.data.memes;
+      console.log(this.memes);
     });
   },
 };
