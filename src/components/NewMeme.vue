@@ -21,7 +21,9 @@ export default {
 
   data() {
     return {
-      currentMeme: '',
+      currentMeme: {
+        url: ''
+      },
       currentMemeName: '',
       currentMemeRequestURL: '',
       currentInputs: {
@@ -64,6 +66,7 @@ export default {
         res.data.data.memes.forEach(meme => {
           if (meme.id === this.currentInputs.template_id.toString()) {
             this.currentMemeName = meme.name;
+            this.currentMeme.url = meme.url;
           }
         })
       })
