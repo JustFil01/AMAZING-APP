@@ -9,20 +9,14 @@
         <div class="column is-12">
           <form>
               <input class="input" type="text" v-model="search"/>
-
-              <button class="button is-info">Refresh the page!</button>
           </form>
+        </div>
 
-          <div class="card" v-for="meme in filteredList">
+          <div class="card column is-3" v-for="meme in filteredList">
             <p>{{meme.name}}</p>
+            <img :src="meme.url" />
           </div>
 
-            <div v-for="meme in memes" :key="meme.id">
-              <p>{{meme.name}}</p>
-              <img :src="meme.url" />
-            </div>
-
-        </div>
       </div>
     </div>
   </section>
@@ -55,8 +49,7 @@ export default {
   },
   computed: {
     filteredList() {
-      if(!this.memes )
-      return null;
+      if(!this.memes) return null;
       (console.log(this.search));
       return this.memes.filter(meme => {
         // (console.log(meme.name));
