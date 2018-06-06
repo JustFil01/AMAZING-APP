@@ -1,7 +1,8 @@
 <template>
   <section class="section">
     <div class="container">
-      <div class="columns is-multiline">
+      <loader v-if="!memes"></loader>
+      <div class="columns is-multiline" v-else-if="memes">
         <div class="column is-12">
           <h1>GET MEMES</h1>
         </div>
@@ -11,10 +12,10 @@
               <button class="button is-info">Refresh the page!</button>
           </form>
         </div>
-            <div v-for="meme in memes" :key="meme.id" class="column is-3">
-              <p>{{meme.name}}</p>
-              <img :src="meme.url" />
-            </div>
+        <div v-for="meme in memes" :key="meme.id" class="column is-3">
+          <p>{{meme.name}}</p>
+          <img :src="meme.url" />
+        </div>
       </div>
     </div>
   </section>
@@ -22,15 +23,20 @@
 
 <script>
 //imports and exports.
+import Loader from './Loader';
 import axios from 'axios';
 export default {
   name: 'Home',
+  components: {
+    Loader
+  },
   //basically state?
   data() {
     return {
-      memes: ''
+      memes: null
     };
   },
+
   //like componentDidMount
   mounted() {
     axios
