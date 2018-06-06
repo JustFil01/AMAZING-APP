@@ -16,9 +16,10 @@
             <router-link :to="'/meme/' + meme.id" class="navbar-item">
               <p>{{meme.name}}</p>
             </router-link>
+              <router-link :to="'/meme/' + meme.id" class="navbar-item">
             <img :src="meme.url" />
+            </router-link>
           </div>
-
       </div>
     </div>
   </section>
