@@ -120,6 +120,11 @@ input {
   width: calc(100% - 30px)
 }
 
+loader {
+  width: 100%;
+  text-align: center;
+}
+
 /* section {
   background-image: url('https://vignette.wikia.nocookie.net/ssb/images/9/9a/Troll-face.jpg/revision/latest?cb=20141224201503');
 } */

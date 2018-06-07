@@ -1,39 +1,54 @@
 <template>
   <section class="section">
     <div class="container">
-      <router-link :to="'/'">
-        <button class="button is-primary">
-          <i class="fas fa-long-arrow-alt-left"></i>
-          &nbsp;
-          Return to the memes
-        </button>
-      </router-link>
-      <div class="inputs">
-        <h1>{{ currentMemeName }}</h1>
-        <div>
-          <label for="text0" class="label">Top Text: </label>
-          <div class="control">
-            <input class="input" name="text0" v-model="currentInputs.text0" placeholder="Top Text"/>
+      <div class="left-text">
+        <router-link :to="'/'">
+          <button class="button is-primary">
+            <i class="fas fa-long-arrow-alt-left"></i>
+            &nbsp;
+            Return to the memes
+          </button>
+        </router-link>
+        <div class="inputs">
+          <h2>{{ currentMemeName }}</h2>
+          <div>
+            <label for="text0" class="label">Top Text: </label>
+            <div class="control">
+              <input class="input" name="text0" v-model="currentInputs.text0" placeholder="Top Text"/>
+            </div>
           </div>
-        </div>
-        <div>
-          <label for="text1" class="label">Bottom Text: </label>
-          <div class="control">
-            <input class="input" name="text1" v-model="currentInputs.text1" placeholder="Bottom Text"/>
+          <div>
+            <label for="text1" class="label">Bottom Text: </label>
+            <div class="control">
+              <input class="input" name="text1" v-model="currentInputs.text1" placeholder="Bottom Text"/>
+            </div>
           </div>
+          <button class="button is-success" v-on:click="getMeme()">Generate this meme</button>
+          <p class="image-link" v-if="currentMeme.url">
+            Direct image link:
+            <loader v-if="!currentMeme.url">whatever</loader>
+            <a :href="currentMeme.url">{{ currentMeme.url }}</a>
+          </p>
         </div>
-        <button class="button is-success" v-on:click="getMeme()">Generate this meme</button>
       </div>
-      <img :src="currentMeme.url"/>
+      <div class="right-image">
+        <div v-if="!currentMeme.url" class="loader-div">
+          <loader></loader>
+        </div>
+        <img :src="currentMeme.url"/>
+      </div>
     </div>
   </section>
 </template>
 <script>
 
+import Loader from './Loader';
 import axios from 'axios';
 export default {
   name: 'NewMeme',
-
+  components: {
+    Loader
+  },
   data() {
     return {
       currentMeme: {
@@ -51,6 +66,7 @@ export default {
 
   methods: {
     getMeme() {
+      this.currentMeme.url = '';
       axios
         .post(`https://api.imgflip.com/caption_image?template_id=${
           this.currentInputs.template_id
@@ -95,6 +111,19 @@ export default {
 section {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0;
+}
+
+.left-text {
+  float: left;
+  width: 30%;
+}
+
+.right-image {
+  float: right;
+  width: 70%;
+  max-height: 100vh;
+  min-height: 80vh;
 }
 
 .container {
@@ -102,9 +131,10 @@ section {
 }
 
 img {
-  max-width: 1000px;
+  max-width: 80%;
   display: block;
   margin: 0 auto;
+  padding-top: 10%;
 }
 
 .inputs {
@@ -112,9 +142,10 @@ img {
   width: 500px;
   margin: 0 auto;
   padding: 20px;
+  width: 100%;
 }
 
-h1 {
+h2 {
   text-align: center;
   font-size: 36px;
   text-decoration: underline;
@@ -129,4 +160,15 @@ button {
 div {
   padding-top: 10px;
 }
+
+.image-link {
+  text-align: center;
+}
+
+.loader-div {
+  width: 100%;
+  text-align: center;
+  padding-top: 30%;
+}
+
 </style>

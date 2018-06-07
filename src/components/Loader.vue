@@ -1,5 +1,9 @@
 <template lang="html">
-  <p>Loading...</p>
+  <p>
+    <img src="../assets/image/Loading_Animation.gif" />
+    <br />
+    Loading...
+  </p>
 </template>
 
 <script>
@@ -8,5 +12,16 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped lang="css">
+
+p {
+  font-size: 36px;
+  text-align: center;
+}
+
+img {
+  width: 100px;
+  text-align: center;
+}
+
 </style>
