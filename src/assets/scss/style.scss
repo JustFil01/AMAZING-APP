@@ -17,15 +17,18 @@ body{
 .memewrapper{
   display: flex;
   flex-flow: column wrap;
-  max-height: 7400px;
+  max-height: 8300px;
   .memebox{
     display: flex;
     flex-wrap: wrap;
     .card{
       background: lightgrey;
-      p{
-        width: 100%;
-        text-align: center;
+      .link{
+        justify-content: center;
+        p{
+          width: 100%;
+          text-align: center;
+        }
       }
     }
   }

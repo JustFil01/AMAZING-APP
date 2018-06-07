@@ -20,7 +20,7 @@
         >
           <div class="memebox column is-3" v-for="meme in filteredList">
             <div class="card">
-              <router-link :to="'/meme/' + meme.id" class="navbar-item">
+              <router-link :to="'/meme/' + meme.id" class="navbar-item link">
                 <p>{{meme.name}}</p>
                 <img :src="meme.url" />
               </router-link>
@@ -76,7 +76,7 @@ export default {
       this.$nextTick(function (){
         if(!this.memes) return null;
       const memeboxes = [...document.getElementsByClassName('memebox')];
-      const totalHeight = memeboxes.reduce((total, meme) => total += meme.clientHeight, 0);
+      const totalHeight = memeboxes.reduce((total, meme) => total += meme.clientHeight + 12, 0);
       console.log(totalHeight);
       this.height = totalHeight / 2.6;
     });
