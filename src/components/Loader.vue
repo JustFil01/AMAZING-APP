@@ -1,6 +1,6 @@
 <template lang="html">
   <p>
-    <img src="../assets/image/Loading_Animation.gif" />
+    <img src="../assets/image/loading.gif" />
     <br />
     Loading...
   </p>
