@@ -6,9 +6,18 @@
         <h1>😂💯👏🔥MAYMAY G3N3R8R🔥👏💯😂</h1>
         <form class="columns is-12">
           <span><i class="fas fa-search"></i></span>
-          <input class="input" type="text" v-model="search" placeholder="Search..." autofocus="autofocus" />
+          <input
+            class="input"
+            type="text"
+            v-model="search"
+            placeholder="Search..."
+            autofocus="autofocus"
+         />
         </form>
-        <div class="memewrapper columns">
+        <div
+          :style="{ height: height + 'px' }"
+          class="memewrapper columns"
+        >
           <div class="memebox column is-3" v-for="meme in filteredList">
             <div class="card">
               <router-link :to="'/meme/' + meme.id" class="navbar-item">
@@ -27,15 +36,6 @@
 //imports and exports.
 import Loader from './Loader';
 import axios from 'axios';
-class Post {
-  constructor(height, id, url, name, width) {
-    this.height = height;
-    this.id = id;
-    this.url = url;
-    this.name = name;
-    this.width = width;
-  }
-}
 export default {
   name: 'Home',
   components: {
@@ -46,6 +46,8 @@ export default {
     return {
       search: '',
       memes: '',
+      hasLoaded: false,
+      height: 0
     };
   },
   computed: {
@@ -56,8 +58,30 @@ export default {
         // (console.log(meme.name));
         return meme.name.toLowerCase().includes(this.search.toLowerCase())
       })
-      }
     },
+  },
+  updated: function () {
+    this.$nextTick(function () {
+      if(!this.memes || this.hasLoaded) return null;
+      const memeboxes = [...document.getElementsByClassName('memebox')];
+      const totalHeight = memeboxes.reduce((total, meme) => total += meme.clientHeight, 0);
+      console.log(totalHeight);
+      this.height = totalHeight / 2.4;
+      this.hasLoaded = true;
+    });
+  },
+  watch: {
+    // whenever question changes, this function will run
+    search(){
+      this.$nextTick(function (){
+        if(!this.memes) return null;
+      const memeboxes = [...document.getElementsByClassName('memebox')];
+      const totalHeight = memeboxes.reduce((total, meme) => total += meme.clientHeight, 0);
+      console.log(totalHeight);
+      this.height = totalHeight / 2.4;
+    });
+    }
+  },
   //like componentDidMount
   mounted() {
     axios
@@ -69,6 +93,7 @@ export default {
     });
   },
 };
+//get the total height of every card.
 </script>
 
 <style scoped>

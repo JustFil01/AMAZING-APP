@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <footer>
+      <p>Hackathon | Hugo Cowan - Fil Antoniadis - Andrew Xu | 2018</p>
+    </footer>
   </div>
 </template>
 

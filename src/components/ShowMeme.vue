@@ -208,19 +208,20 @@ section {
 }
 
 .left-text {
-  float: left;
+  align-self: flex-start;
   width: 30%;
 }
 
 .right-image {
-  float: right;
+  align-self: flex-end;
   width: 70%;
-  max-height: 100vh;
-  min-height: 80vh;
+  max-height: 100%;
+  min-height: 80%;
 }
 
 .container {
   max-width: 1000px;
+  display: flex;
 }
 
 img {

@@ -19,10 +19,14 @@ body{
   flex-flow: column wrap;
   max-height: 7400px;
   .memebox{
+    display: flex;
+    flex-wrap: wrap;
     .card{
       background: lightgrey;
-      // height: 350px;
-      // animation: flash 2s infinite;
+      p{
+        width: 100%;
+        text-align: center;
+      }
     }
   }
 }
@@ -75,4 +79,17 @@ span {
 input {
   display: inline;
   width: calc(100% - 30px)
+}
+footer{
+  margin-top: 150px;
+  height: 80px;
+  color: white;
+  text-align: center;
+  width: auto;
+  background-color: #161616;
+  box-shadow: 100vh 110vh 0 110vh #161616;
+}
+footer:before, footer:after {
+    padding: 1em;
+    content: '';
 }
