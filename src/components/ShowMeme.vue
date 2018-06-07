@@ -60,7 +60,54 @@ export default {
         template_id: this.$route.params.id,
         text0: '',
         text1: ''
-      }
+      },
+      autocomplete: [
+        {
+          name: 'One Does Not Simply',
+          text0: 'One does not simply'
+        }, {
+          name: 'The Most Interesting Man In The World',
+          text0: 'I don\'t always',
+          text1: 'but when I do'
+        }, {
+          name: 'Grumpy Cat',
+          text1: 'grumpy cat'
+        }, {
+          name: 'X, X Everywhere',
+          text0: ',',
+          text1: 'everywhere'
+        }, {
+          name: 'Futurama Fry',
+          text0: 'Not sure if',
+          text1: 'or'
+        }, {
+          name: 'Y U No',
+          text0: 'Y U NO'
+        }, {
+          name: 'Brace Yourselves X is Coming',
+          text0: 'Brace yourselves',
+          text1: 'is coming'
+        }, {
+          name: 'X All The Y',
+          text1: 'all the'
+        }, {
+          name: 'Too Damn High',
+          text1: 'is too damn high'
+        }, {
+          name: 'Yo Dawg Heard You',
+          text0: 'Yo dawg',
+          text1: 'so'
+        }, {
+          name: 'Matrix Morpheus',
+          text0: 'What if I told you'
+        }, {
+          name: 'Aint Nobody Got Time For That',
+          text1: 'ain\'t nobody got time for that'
+        }, {
+          name: 'Pepperidge Farm Remembers',
+          text1: 'Pepperidge Farm remembers'
+        }
+      ]
     };
   },
 
@@ -98,6 +145,11 @@ export default {
           if (meme.id === this.currentInputs.template_id.toString()) {
             this.currentMemeName = meme.name;
             this.currentMeme.url = meme.url;
+            this.autocomplete.forEach(meme => {
+              if (this.currentMemeName === meme.name) {
+                this.currentInputs = { ...this.currentInputs, ...meme };
+              }
+            })
           }
         });
       });
