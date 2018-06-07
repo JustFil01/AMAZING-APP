@@ -29,7 +29,6 @@
         </div>
       </div>
     </div>
-    <!-- {{getHeight()}} -->
   </section>
 </template>
 
@@ -98,7 +97,5 @@ export default {
 </script>
 
 <style scoped>
-  .memewrapper{
-    height:
-  }
+
 </style>
