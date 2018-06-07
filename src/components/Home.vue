@@ -11,15 +11,16 @@
               <input class="input" type="text" v-model="search"/>
           </form>
         </div>
-
-          <div class="card column is-3" v-for="meme in filteredList">
-            <router-link :to="'/meme/' + meme.id" class="navbar-item">
-              <p>{{meme.name}}</p>
-            </router-link>
+          <div class="memewrapper columns is-12 is-multiline">
+          <div class="memebox column is-3" v-for="meme in filteredList">
+            <div class="card">
               <router-link :to="'/meme/' + meme.id" class="navbar-item">
-            <img :src="meme.url" />
-            </router-link>
+                <p>{{meme.name}}</p>
+              <img :src="meme.url" />
+              </router-link>
+            </div>
           </div>
+        </div>
       </div>
     </div>
   </section>

@@ -1,5 +1,19 @@
 @import '~bulma/bulma';
 
-.navbar-item img {
+.navbar-item {
+  flex-wrap: wrap;
+  img {
     max-height: 20.75rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.memewrapper{
+  flex-direction: column;
+  .memebox{
+    .card{
+      // height: 350px;
+    }
+  }
 }
