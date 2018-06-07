@@ -1,17 +1,31 @@
 <template>
   <section class="section">
-    <router-link :to="'/'" class="navbar-item">
-      Return to the memes
-    </router-link>
-    <label for="text0">Top Text:</label>
-    <input name="text0" v-model="currentInputs.text0" placeholder="Top Text"/>
-    <label for="text1">Bottom Text:</label>
-    <input name="text1" v-model="currentInputs.text1" placeholder="Bottom Text"/>
-    <button v-on:click="getMeme()">Generate this meme</button>
-    <p>Current meme template: {{ currentMemeName }}</p>
-    <p>Current top text: {{ currentInputs.text0 }}</p>
-    <p>Current bottom text: {{ currentInputs.text1 }}</p>
-    <img :src="currentMeme.url"/>
+    <div class="container">
+      <router-link :to="'/'">
+        <button class="button is-primary">
+          <i class="fas fa-long-arrow-alt-left"></i>
+          &nbsp;
+          Return to the memes
+        </button>
+      </router-link>
+      <div class="inputs">
+        <h1>{{ currentMemeName }}</h1>
+        <div>
+          <label for="text0" class="label">Top Text: </label>
+          <div class="control">
+            <input class="input" name="text0" v-model="currentInputs.text0" placeholder="Top Text"/>
+          </div>
+        </div>
+        <div>
+          <label for="text1" class="label">Bottom Text: </label>
+          <div class="control">
+            <input class="input" name="text1" v-model="currentInputs.text1" placeholder="Bottom Text"/>
+          </div>
+        </div>
+        <button class="button is-success" v-on:click="getMeme()">Generate this meme</button>
+      </div>
+      <img :src="currentMeme.url"/>
+    </div>
   </section>
 </template>
 <script>
@@ -76,5 +90,43 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+img {
+  max-width: 1000px;
+  display: block;
+  margin: 0 auto;
+}
+
+.inputs {
+  background-color: papayawhip;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  text-decoration: underline;
+  font-family: 'impact', sans-serif;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+}
+
+div {
+  padding-top: 10px;
+}
 </style>
