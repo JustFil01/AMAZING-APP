@@ -1,5 +1,9 @@
 @import '~bulma/bulma';
 
+body{
+  background: #aec6cf;
+}
+
 .navbar-item {
   flex-wrap: wrap;
   img {
@@ -15,7 +19,9 @@
   max-height: 7400px;
   .memebox{
     .card{
+      background: lightgrey;
       // height: 350px;
+      // animation: flash 2s infinite;
     }
   }
 }
