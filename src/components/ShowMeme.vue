@@ -213,7 +213,7 @@ section {
 }
 
 .right-image {
-  align-self: flex-end;
+  align-self: center;
   width: 70%;
   max-height: 100%;
   min-height: 80%;
