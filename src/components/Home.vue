@@ -12,14 +12,14 @@
             <input class="input" type="text" v-model="search" placeholder="Search..." autofocus="autofocus" />
           </form>
         </div>
-          <div class="memewrapper columns is-12 is-multiline">
-          <div class="memebox column is-3" v-for="meme in filteredList">
-            <div class="card">
-              <router-link :to="'/meme/' + meme.id" class="navbar-item">
-                <p>{{meme.name}}</p>
+      </div>
+      <div class="memewrapper">
+        <div class="memebox column is-3" v-for="meme in filteredList">
+          <div class="card">
+            <router-link :to="'/meme/' + meme.id" class="navbar-item">
+              <p>{{meme.name}}</p>
               <img :src="meme.url" />
-              </router-link>
-            </div>
+            </router-link>
           </div>
         </div>
       </div>

@@ -10,7 +10,9 @@
 }
 
 .memewrapper{
-  // flex-direction: column;
+  display: flex;
+  flex-flow: column wrap;
+  max-height: 7300px;
   .memebox{
     .card{
       // height: 350px;
