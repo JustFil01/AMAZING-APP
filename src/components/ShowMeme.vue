@@ -29,6 +29,12 @@
             <loader v-if="!currentMeme.url">whatever</loader>
             <a :href="currentMeme.url">{{ currentMeme.url }}</a>
           </p>
+          <a :href="knowYourMemePage">
+            <button class="button is-warning">Show on KnowYourMeme</button>
+          </a>
+          <a :href="knowYourMemeSearch">
+            <button class="button is-danger">Search on KnowYourMeme</button>
+          </a>
         </div>
       </div>
       <div class="right-image">
@@ -51,6 +57,8 @@ export default {
   },
   data() {
     return {
+      knowYourMemePage: '',
+      knowYourMemeSearch: '',
       currentMeme: {
         url: ''
       },
@@ -106,6 +114,28 @@ export default {
         }, {
           name: 'Pepperidge Farm Remembers',
           text1: 'Pepperidge Farm remembers'
+        }, {
+          name: 'Laughing Men In Suits',
+          text0: 'And then I said'
+        }, {
+          name: 'I\'m The Captain Now',
+          text0: 'Look at me',
+          text1: 'I\'m the _ now'
+        }, {
+          name: 'Sparta Leonidas',
+          text1: 'THIS IS SPARTA!'
+        }, {
+          name: 'That Would Be Great',
+          text1: 'that would be great'
+        }, {
+          name: 'Shut Up And Take My Money Fry',
+          text1: 'shut up and take my money'
+        }, {
+          name: 'But Thats None Of My Business',
+          text1: 'but that\'s none of my business'
+        }, {
+          name: 'See Nobody Cares',
+          text1: 'See? Nobody cares.'
         }
       ]
     };
@@ -151,6 +181,17 @@ export default {
               }
             })
           }
+          this.knowYourMemePage = `http://knowyourmeme.com/memes/${this.currentMemeName.toLowerCase().split(' ').join('-')}`;
+          this.knowYourMemeSearch = `http://knowyourmeme.com/search?q=${this.currentMemeName.toLowerCase().split(' ').join('+')}`;
+          // axios.get(`http://knowyourmeme.com/memes/${this.currentMemeName.toLowerCase().split(' ').join('-')}`)
+          //   .then(res => {
+          //     console.log(res.status);
+          //     this.knowYourMemePage = `http://knowyourmeme.com/memes/${this.currentMemeName.toLowerCase().split(' ').join('-')}`
+          //   })
+          //   .catch(err => {
+          //     console.log(err);
+          //     this.knowYourMemeSearch = `http://knowyourmeme.com/search?q=${this.currentMemeName.toLowerCase().split(' ').join('+')}`
+          //   });
         });
       });
   }
