@@ -4,11 +4,12 @@
       <loader v-if="!memes"></loader>
       <div class="columns is-multiline" v-else-if="memes">
         <div class="column is-12">
-          <h1>GET THE LATEST HOT MEMES</h1>
+          <h1>😂💯👏🔥MAYMAY G3N3R8R🔥👏💯😂</h1>
         </div>
         <div class="column is-12">
           <form>
-              <input class="input" type="text" v-model="search"/>
+            <span><i class="fas fa-search"></i></span>
+            <input class="input" type="text" v-model="search" placeholder="Search..." autofocus="autofocus" />
           </form>
         </div>
           <div class="memewrapper columns is-12 is-multiline">
@@ -74,5 +75,53 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+h1 {
+  text-align: center;
+  font-family: 'impact', sans-serif;
+  font-size: 72px;
+  animation: flash 2s infinite;
+  height: 100px;
+}
+
+@keyframes flash {
+    0%   {
+      color: red;
+      font-size: 80px;
+    }
+    25%  {
+      color: yellow;
+      font-size: 72px;
+    }
+    50%  {
+      color: blue;
+      font-size: 80px;
+    }
+    75% {
+      color: green;
+      font-size: 72px;
+    }
+    100% {
+      color: red;
+      font-size: 80px;
+    }
+}
+
+span {
+  width: 30px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 5px;
+}
+
+input {
+  display: inline;
+  width: calc(100% - 30px)
+}
+
+/* section {
+  background-image: url('https://vignette.wikia.nocookie.net/ssb/images/9/9a/Troll-face.jpg/revision/latest?cb=20141224201503');
+} */
+
 </style>
