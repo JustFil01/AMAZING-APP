@@ -66,7 +66,7 @@ export default {
       const memeboxes = [...document.getElementsByClassName('memebox')];
       const totalHeight = memeboxes.reduce((total, meme) => total += meme.clientHeight, 0);
       console.log(totalHeight);
-      this.height = totalHeight / 2.4;
+      this.height = totalHeight / 2.6;
       this.hasLoaded = true;
     });
   },
@@ -78,7 +78,7 @@ export default {
       const memeboxes = [...document.getElementsByClassName('memebox')];
       const totalHeight = memeboxes.reduce((total, meme) => total += meme.clientHeight, 0);
       console.log(totalHeight);
-      this.height = totalHeight / 2.4;
+      this.height = totalHeight / 2.6;
     });
     }
   },
