@@ -69,8 +69,8 @@ export default {
             if (meme.id === this.currentInputs.template_id.toString()) {
               this.currentMemeName = meme.name;
             }
-          })
-        })
+          });
+        });
     }
   },
 
@@ -83,9 +83,9 @@ export default {
             this.currentMemeName = meme.name;
             this.currentMeme.url = meme.url;
           }
-        })
-      })
-  },
+        });
+      });
+  }
 
 };
 </script>
