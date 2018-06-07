@@ -4,7 +4,7 @@
       <loader v-if="!memes"></loader>
       <div class="columns is-multiline" v-else-if="memes">
         <div class="column is-12">
-          <h1>😂💯👏🔥MAYMAY G3N3R8R🔥👏💯😂</h1>
+          <!-- <h1>😂💯👏🔥MAYMAY G3N3R8R🔥👏💯😂</h1> -->
         </div>
         <div class="column is-12">
           <form>
