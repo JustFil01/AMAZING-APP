@@ -1,5 +1,9 @@
 @import '~bulma/bulma';
 
+body{
+  background: #aec6cf;
+}
+
 .navbar-item {
   flex-wrap: wrap;
   img {
@@ -10,10 +14,64 @@
 }
 
 .memewrapper{
-  // flex-direction: column;
+  display: flex;
+  flex-flow: column wrap;
+  max-height: 7400px;
   .memebox{
     .card{
+      background: lightgrey;
       // height: 350px;
+      // animation: flash 2s infinite;
     }
   }
+}
+
+h1 {
+  text-align: center;
+  font-family: 'impact', sans-serif;
+  font-size: 50px;
+  // animation: flash 2s infinite;
+  height: 50px;
+  margin: 0 0 50px 0;
+  @media(max-width: 815px){
+    font-size: 40px;
+  }
+  @media(max-width: 662px){
+    font-size: 30px;
+  }
+}
+
+@keyframes flash {
+    0%   {
+      color: red;
+      font-size: 50px;
+    }
+    25%  {
+      color: yellow;
+      font-size: 35px;
+    }
+    50%  {
+      color: blue;
+      font-size: 50px;
+    }
+    75% {
+      color: green;
+      font-size: 35px;
+    }
+    100% {
+      color: red;
+      font-size: 50px;
+    }
+}
+
+span {
+  width: 30px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 5px;
+}
+
+input {
+  display: inline;
+  width: calc(100% - 30px)
 }
